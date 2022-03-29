@@ -1,13 +1,16 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose"
-import seeders from "./src/seeders/index.js";
+import seeders from "./seeders/index.js";
+import router from "./api/routes/v1/admin/Auth.js";
 
 dotenv.config();      // Here is env file configration
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // use for getting form url data encoded
+
+app.use("/api/v1", router);
 
 // create server code start here  
 const port = process.env.PORT
