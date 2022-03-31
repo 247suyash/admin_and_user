@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import bcryptjs from "bcryptjs";
-import user from "../api/database/models/user.js";
+import user from "../api/database/models/adminModel.js";
 
 const seedUsers = async () => {
     const existingUsers = await user.find({});
@@ -19,7 +19,7 @@ const seedUsers = async () => {
     }))
     await user.create(newUsers);
     console.log("Users: ");
-    console.table(NewUsers.map((user) => ({ ...user, password: "password" }))); // Print once while create admin user 
+    console.table(newUsers.map((user) => ({ ...user, password: "password" }))); // Print once while create admin user 
   };
   export default async () => {
     await seedUsers();

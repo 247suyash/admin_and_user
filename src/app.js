@@ -1,11 +1,16 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose"
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 import seeders from "./seeders/index.js";
-import router from "./api/routes/v1/admin/Auth.js";
+import router from "./api/routes/index.js";
 
 dotenv.config();      // Here is env file configration
 
+
+global.__filename = fileURLToPath(import.meta.url);
+global.__dirname = dirname(__filename);
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // use for getting form url data encoded

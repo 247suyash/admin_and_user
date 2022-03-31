@@ -8,8 +8,6 @@ const UserModelSchema = new Schema(
         lastName:  { type: Schema.Types.String, required: true },
         email:     { type: Schema.Types.String, required: true },
         password:  { type: Schema.Types.String, required: true },
-        contact:   { type: Schema.Types.String, required: true },
-        city:      { type: Schema.Types.String, required: true },
     })
 
 UserModelSchema.pre("save", function (next) {
