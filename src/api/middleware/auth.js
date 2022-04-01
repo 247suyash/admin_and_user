@@ -1,4 +1,4 @@
-import user from "../database/models/adminModel.js";
+import adminModel from "../database/models/adminModel.js";
 import { decode } from "../../utils/jwt.js";
 import message from "../common/messages.js";
 
@@ -19,12 +19,15 @@ export const validateToken = async (req, res, next) => {
     
     const { id } = await decode(token);
     
-    const userDetails = await user
+    const userDetails = await adminModel
     .findById(id)
     
     if (!userDetails) {
-      throw "";
+      return res.status(404).json({
+        message: message.UNAUTHORIZED,
+      })
     }
+    console.log("how many times run")
     next();
   } catch (error) {
     console.log(error);

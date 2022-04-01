@@ -10,6 +10,7 @@ const UserModelSchema = new Schema(
         password:  { type: Schema.Types.String, required: true },
         contact:   { type: Schema.Types.String, required: true },
         city:      { type: Schema.Types.String, required: true },
+        profileImage:{ type: Schema.Types.String, required: true },
     })
 
 UserModelSchema.pre("save", function (next) {

@@ -2,7 +2,7 @@ const message = {
     LOGIN_SUCCESS: "Logged in successfully!",
     UNAUTHORIZED:"You are not authorized to access this resource. Please login to continue.",
     INVALID_TOKEN: "Your token has been expired, Please login again!",
-
+    UPLOAD_SUCCESS:"Image upload successfully",
     EMAIL_NOT_MATCH: "This email address doesn't exists!",
     PASSWORD_NOT_MATCH: "Password did not match!",
     USER_NOT_FOUND: "User not found!",

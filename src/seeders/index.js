@@ -1,7 +1,6 @@
 import { faker } from "@faker-js/faker";
 import bcryptjs from "bcryptjs";
 import user from "../api/database/models/adminModel.js";
-
 const seedUsers = async () => {
     const existingUsers = await user.find({});
     if (existingUsers.length) {
@@ -15,7 +14,8 @@ const seedUsers = async () => {
         email: faker.internet.email(),
         password: bcryptjs.hashSync("password", 10), // static password 
         city:faker.address.city(),
-        contact:faker.phone.phoneNumber()
+        contact:faker.phone.phoneNumber(),
+        profileImage:faker.image.avatar()
     }))
     await user.create(newUsers);
     console.log("Users: ");
