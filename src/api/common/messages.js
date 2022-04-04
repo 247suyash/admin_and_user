@@ -13,7 +13,17 @@ const message = {
     EMAIL_NOT_MATCH: "This email address does not exists!",
     VERIFY_SUCCESS:"successfully verify!",
     ADMIN_DATA_DELETED:"Admin data deleted successfully ",
+    CATEGORY_ERROR: "Category doesn't add , Please try after some time",
+    CATEGORY_NOT_FOUND:"Category not found !",
+    CATEGORY_SUCCESS: "Category add successfilly",
+   
+    PRODUCT_GET_SUCCESS:"Get product successfully",
+    PRODUCT_SUCCESS: "PRODUCT add successfilly",
+    PRODUCT_ERROR: "PRODUCT doesn't add , Please try after some time",
+    PRODUCTS_NOT_FOUND:"Product not found",
+   
     ERROR_MESSAGE: "Unexpected error occurred!",
+
 }
 
 export default message

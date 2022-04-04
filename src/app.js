@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // use for getting form url data encoded
 
-app.use("/api/v1", router);
+app.use("/api", router);
 
 // create server code start here  
 const port = process.env.PORT
