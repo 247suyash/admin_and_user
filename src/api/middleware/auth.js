@@ -27,7 +27,6 @@ export const validateToken = async (req, res, next) => {
         message: message.UNAUTHORIZED,
       })
     }
-    console.log("how many times run")
     next();
   } catch (error) {
     console.log(error);

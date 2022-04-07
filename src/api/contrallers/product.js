@@ -3,69 +3,79 @@ import product from "../database/models/product.js"
 import categorys from '../database/models/category.js'
 
 
-/**
+/**  
  * get products code 
  * @param { req, res }
  * @returns JsonResponse
  */
-const productpage =async (req,res)=>{
+const productpage = async (req, res) => {
     try {
-        const {query:{categories}} =req;
+        const { query: { categories } } = req;
         let filter = {};
-    
+
         if (categories) {
-            filter = { category:categories.split(',') }
+            filter = { category: categories.split(',') }
         }
-    
-        // categorywise data will show
-        const productList = await product.findOne(filter).populate('category');
-    
+
+        // get product list according categorywise 
+        const productList = await product.find(filter).populate('category');
+
         if (!productList) {
             return res.status(500).json({
                 message: message.PRODUCTS_NOT_FOUND
             })
         }
-    
+
         return res.status(200).json({
-            message:message.PRODUCT_GET_SUCCESS,
-            productList:productList
+            message: message.PRODUCT_GET_SUCCESS,
+            productList: productList
         });;
-    
+
     } catch (error) {
         return res.status(500).json({
-            message:message.ERROR_MESSAGE
+            message: message.ERROR_MESSAGE
         });
     }
 }
-    /**
- * add product code 
- * @param { req, res }
- * @returns JsonResponse
- */
+
+/**
+* add product code 
+* @param { req, res }
+* @returns JsonResponse
+*/
 const productAction = async (req, res) => {
     try {
-        const { name, description, salePrice, mrp, category } = req.body;
-        const categoryId = await categorys.findById(category)
-        console.log("categoryId",categoryId)
-        if(!categoryId){
+        const filesName = req.files;
+        const file = req.body;
+
+        const categoryId = await categorys.findById(file.category)
+        let productImage = [];
+        filesName.map((data) => {
+            productImage.push({ files: data.filename })
+            console.log("productImages", productImage)
+        })
+        if (!categoryId) {
             return res.status(200).json({
-                message:message.CATEGORY_NOT_FOUND
+                message: message.CATEGORY_NOT_FOUND
             })
         }
         const products = await product.create({
-            name,
-            salePrice,
-            mrp,
-            category,
-            description
+            name: file.name,
+            description: file.description,
+            salePrice: file.salePrice,
+            mrp: file.mrp,
+            category: categoryId,
+            productImage,
         })
         return res.status(200).json({
             message: message.PRODUCT_SUCCESS,
-            product:products
+            product: products
+
         })
     } catch (error) {
         return res.status(500).json({
-            message: message.PRODUCT_ERROR
+            message: message.PRODUCT_ERROR,
+            error: error
         })
     }
 }

@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose"
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import  bodyParser from 'body-parser'
 import seeders from "./seeders/index.js";
 import router from "./api/routes/index.js";
 
@@ -13,6 +14,8 @@ global.__filename = fileURLToPath(import.meta.url);
 global.__dirname = dirname(__filename);
 const app = express();
 app.use(express.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true })); // use for getting form url data encoded
 
 app.use("/api", router);

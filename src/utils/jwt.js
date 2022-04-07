@@ -7,6 +7,5 @@ export const encode = async (payload) => {
 };
 
 export const decode = async (token) => {
-  console.log("checking decode jwt ", token)
   return jwt.decode(token, process.env.JWT_SECRET);
 };
