@@ -21,7 +21,10 @@ const message = {
     PRODUCT_SUCCESS: "PRODUCT add successfilly",
     PRODUCT_ERROR: "PRODUCT doesn't add , Please try after some time",
     PRODUCTS_NOT_FOUND:"Product not found",
-   
+    
+    CART_PRODUCT_NOT_FOUND:"No product availabe for user in cart !",
+    PLACE_ORDER_SUCCESS:"Order placed successfully",
+    PLACE_ORDER_ERROR:"",
     ERROR_MESSAGE: "Unexpected error occurred!",
 
 }
