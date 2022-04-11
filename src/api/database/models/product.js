@@ -19,8 +19,22 @@ const productSchema = new Schema({
                     required: false
                 }
             },
-           
+
         ),
+    ],
+    reviewProduct: [
+        {
+            userId: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "userModel",
+                required: false
+            },
+            description:{
+                type:String,
+                required:false
+            }
+        },
+
     ]
 
 });

@@ -1,6 +1,5 @@
 import message from "../common/messages.js";
 import product from "../database/models/product.js";
-
 /**  
  * get products code 
  * @param { req, res }
@@ -49,6 +48,20 @@ const productPage = async (req, res) => {
     }
 }
 
+/**
+* add review  code 
+* @param { req, res }
+* @returns JsonResponse
+*/
+const reviewAction = async (req, res) => {
+    try {
+        
+    } catch (error) {
+        return res.status(500).json({
+            message: message.ERROR_MESSAGE
+        });
+    }
+}
 export default {
-    productPage,
+    productPage
 } 

@@ -24,7 +24,9 @@ const message = {
     
     CART_PRODUCT_NOT_FOUND:"No product availabe for user in cart !",
     PLACE_ORDER_SUCCESS:"Order placed successfully",
-    PLACE_ORDER_ERROR:"",
+    PLACE_ORDER_NOT_FOUND:"No Order Found !",
+    GET_PLACE_ORDER_SUCCESS:"Get place ordered successfully",
+
     ERROR_MESSAGE: "Unexpected error occurred!",
 
 }

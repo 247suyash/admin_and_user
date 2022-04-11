@@ -79,7 +79,8 @@ const productAction = async (req, res) => {
         })
     }
 }
+
 export default {
     productAction,
-    productpage
+    productpage,
 }
